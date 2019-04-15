@@ -1,11 +1,12 @@
 Package: rmiscfun
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Miscellaneous functions in R
+Version: 1.0
+Authors@R: person("Guillermo", "Basulto-Elias", 
+                  email = "guillermobasulto@gmail.com",
+                  role = c("aut", "cre"))
+Maintainer: Guillermo Basulto-Elias <guillermobasulto@gmail.com>
+Description: This is an R package with miscelleous functions used at work or personal projects.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

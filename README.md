@@ -18,6 +18,11 @@ You can install the current version of rmiscfun from [GitHub](https://github.com
 devtools::install_github("gbasulto/rmiscfun")
 ```
 
+Available Functions
+-------------------
+
+-   `glance_data`: Summarize both, categorical and numerical variables in a dataframe.
+
 Example
 -------
 
@@ -27,6 +32,3 @@ This is a basic example which shows you how to solve a common problem:
 library(rmiscfun)
 ## basic example code
 ```
-
-List of functions:
-------------------

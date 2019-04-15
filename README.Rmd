@@ -15,9 +15,10 @@ knitr::opts_chunk$set(
 # rmiscfun
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/gbasulto/rmiscfun.svg?branch=master)](https://travis-ci.org/gbasulto/rmiscfun)
 <!-- badges: end -->
 
-The goal of rmiscfun is to ...
+The goal of rmiscfun is provide call functions that I use in different projects (at work and personal ones.)
 
 ## Installation
 
@@ -36,18 +37,5 @@ library(rmiscfun)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+List of functions:
+- 

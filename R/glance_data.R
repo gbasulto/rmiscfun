@@ -45,7 +45,9 @@ print_tally <- function(x, n = 5) {
   x %>%
     as.character() %>%
     fct_count() %>%
-    transmute(count = paste0(f, ": ", n))$count %>%
+    {
+      transmute(., count = paste0(f, ": ", n))$count
+    } %>%
     paste0(collapse = ", ")
 }
 

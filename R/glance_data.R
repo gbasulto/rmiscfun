@@ -63,7 +63,28 @@ count_distinc_values <- function (x) {
 
 ##' Glance Data
 ##'
-##' Provides a summary of data.
+##' Provides a summary of data with the the following columns:
+##' \describe{
+##' \item{\code{name}}{Name of the column.}
+##' \item{\code{type}}{Type of the column, equal to "numerical",
+##' "logical", "factor", "categorical", or "NA only".}
+##' \item{\code{distinct_values}}{Count of distinct values. It ignores
+##' NA values. Thus, if a columns only has NAs, then the value of this
+##' field will be zero.}
+##' \item{\code{minimum}}{Minimum of numerical columns expluding NA
+##' values.}
+##' \item{\code{median}}{Median of numerical columns excluding NA
+##' values.}
+##' \item{\code{maximum}}{Maximum of numerical columns expluding NA
+##' values.}
+##' \item{\code{na_proportion}}{Proportion of NAs.}
+##' \item{\code{count}}{Tally of values if the column has 5 values at
+##' most. This value (5) can be modified with the parameter
+##' \code{limit2tally}.}
+##' \item{\code{sample_values}}{Sample of (different) values in each
+##' column.}
+##' }
+##'
 ##' @param x A dataframe with named columns.
 ##' @param limit2tally One of the summaries is a tally of the distinct
 ##'     values on each column. If there are too many different values
@@ -109,3 +130,4 @@ glance_data <- function(x, limit2tally = 5) {
                     })
     )
 }
+

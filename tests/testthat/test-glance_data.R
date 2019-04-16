@@ -1,4 +1,4 @@
-context("glance data function")
+context("test-glance_data")
 
 
 test_that("nas expected", {

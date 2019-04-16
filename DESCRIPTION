@@ -15,7 +15,8 @@ Imports:
     dplyr,
     purrr,
     tibble,
-    forcats
+    forcats,
+    openxlsx
 Suggests: 
     covr,
     spelling,

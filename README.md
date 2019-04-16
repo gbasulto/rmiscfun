@@ -24,7 +24,6 @@ Installation
 You can install the current version of rmiscfun from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
 devtools::install_github("gbasulto/rmiscfun")
 ```
 

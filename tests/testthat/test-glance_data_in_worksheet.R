@@ -14,8 +14,4 @@ test_that("size of each list element", {
   expect_true(all(elements == c(5, 2, 0, 0, 0, 4, 1)))
 })
 
-glance_data_in_worksheet(iris)
-glance_data_in_worksheet(iris, "test.xlsx")
-
-
 

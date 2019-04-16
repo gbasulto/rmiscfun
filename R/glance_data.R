@@ -69,7 +69,7 @@ count_distinc_values <- function (x) {
 ##'     values on each column. If there are too many different values
 ##'     in a column, this summary would be meaningless. This
 ##'     \code{limit2tally} is the limit of distinct values to
-##'     tally. If there are more than tham it returns
+##'     tally. If there are more than that it returns
 ##'     "Too many unique values".
 ##' @return A \code{tibble}.
 ##' @importFrom tibble tibble

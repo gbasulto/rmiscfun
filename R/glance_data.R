@@ -42,13 +42,16 @@ print_tally <- function(x, n = 5) {
   ## if (is.na(n_levels)) return (NA)
   if (n_levels > n) return("Too many unique values")
 
-  x %>%
-    as.character() %>%
-    fct_count() %>%
-    {
-      transmute(., count = paste0(f, ": ", n))$count
-    } %>%
-    paste0(collapse = ", ")
+  ## Tally factor levels
+  out <- x %>%
+      as.character() %>%
+      fct_count()
+
+  ## Create column with counts
+  out <- transmute(out, count = paste0(f, ": ", n))$count
+
+  ## Return a single string with tallied values separated by commas.
+  paste0(out, collapse = ", ")
 }
 
 count_distinc_values <- function (x) {
@@ -74,6 +77,8 @@ count_distinc_values <- function (x) {
 ##' @importFrom stats median
 ##' @importFrom dplyr %>%
 ##' @importFrom utils head
+##' @examples
+##' glance_data(iris)
 ##' @author Guillermo Basulto-Elias
 ##' @export
 glance_data <- function(x, limit2tally = 5) {

@@ -4,7 +4,7 @@ rmiscfun
 ========
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/gbasulto/rmiscfun.svg?branch=master)](https://travis-ci.org/gbasulto/rmiscfun) <!-- badges: end -->
+[![Travis build status](https://travis-ci.org/gbasulto/rmiscfun.svg?branch=master)](https://travis-ci.org/gbasulto/rmiscfun) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/gbasulto/rmiscfun?branch=master&svg=true)](https://ci.appveyor.com/project/gbasulto/rmiscfun) <!-- badges: end -->
 
 The goal of rmiscfun is provide call functions that I use in different projects (at work and personal ones.)
 

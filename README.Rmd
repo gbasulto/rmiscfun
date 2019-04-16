@@ -49,7 +49,7 @@ devtools::install_github("gbasulto/rmiscfun")
 
 This is an example:
 
-```{r example}
+```{r glance_data, eval = FALSE}
 ## Load package
 library(rmiscfun)
 
@@ -58,6 +58,26 @@ help("glance_data")
 
 ## Summarize iris dataset
 glance_data(iris)
+
+```
+
+- `glance_data_in_worksheet`: Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Worksheet.
+
+This is an example:
+
+```{r glance_data_in_worksheet, eval = FALSE}
+## Load package
+library(rmiscfun)
+
+## Check documentation
+help("glance_data_in_worksheet")
+
+## Summarize iris dataset
+glance_data_in_worksheet(iris)
+
+## Uncomment the following line to summarize iris dataset AND create Excel Worksheet
+## glance_data_in_worksheet(iris, "iris_in_excel.xlsx")
+
 
 ```
 

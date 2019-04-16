@@ -41,17 +41,25 @@ library(rmiscfun)
 
 ## Check documentation
 help("glance_data")
-#> starting httpd help server ... done
 
 ## Summarize iris dataset
 glance_data(iris)
-#> # A tibble: 5 x 9
-#>   name  type  distinct_values minimum median maximum na_proportion count
-#>   <chr> <chr>           <int>   <dbl>  <dbl>   <dbl>         <dbl> <chr>
-#> 1 Sepa~ nume~              35     4.3   5.8      7.9             0 Too ~
-#> 2 Sepa~ nume~              23     2     3        4.4             0 Too ~
-#> 3 Peta~ nume~              43     1     4.35     6.9             0 Too ~
-#> 4 Peta~ nume~              22     0.1   1.3      2.5             0 Too ~
-#> 5 Spec~ fact~               3    NA    NA       NA               0 seto~
-#> # ... with 1 more variable: sample_values <chr>
+```
+
+-   `glance_data_in_worksheet`: Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Worksheet.
+
+This is an example:
+
+``` r
+## Load package
+library(rmiscfun)
+
+## Check documentation
+help("glance_data_in_worksheet")
+
+## Summarize iris dataset
+glance_data_in_worksheet(iris)
+
+## Uncomment the following line to summarize iris dataset AND create Excel Worksheet
+## glance_data_in_worksheet(iris, "iris_in_excel.xlsx")
 ```

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 The goal of rmiscfun is provide call functions that I use in different projects (at work and personal ones.)
 
 
-## Prerrequisites
+## Prerequisites
 
 
 1. Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) (Only if you are on Windows): Download and execute the recommended EXE file in [this link](https://cran.r-project.org/bin/windows/Rtools/).
@@ -44,9 +44,16 @@ devtools::install_github("gbasulto/rmiscfun")
 
 ## Available Functions
 
-- `glance_data`: Summarize both, categorical and numerical variables in a dataframe.
+| Function | Brief description |
+| :-------------------- | :------------------------------------------------------------|
+| `glance_data`         | Summarize both, categorical and numerical variables in a dataframe |
+| `glance_data_in_worksheet` | Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Worksheet |
 
-This is an example:
+
+## Examples
+
+#### `glance_data`
+
 
 ```{r glance_data, eval = FALSE}
 ## Load package
@@ -60,9 +67,8 @@ glance_data(iris)
 
 ```
 
-- `glance_data_in_worksheet`: Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Worksheet.
+#### `glance_data_in_worksheet`
 
-This is an example:
 
 ```{r glance_data_in_worksheet, eval = FALSE}
 ## Load package

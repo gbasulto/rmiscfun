@@ -22,6 +22,9 @@ A \code{tibble}.
 \description{
 Provides a summary of data.
 }
+\examples{
+glance_data(iris)
+}
 \author{
 Guillermo Basulto-Elias
 }

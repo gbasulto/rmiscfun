@@ -18,6 +18,12 @@ Prerequisites
 install.packages("devtools")
 ```
 
+1.  Install `tidyverse` package in `R`. I use functions from several tidyverse packages, so it is better to have them all installed.
+
+``` r
+install.packages("tidyverse")
+```
+
 Installation
 ------------
 
@@ -69,7 +75,7 @@ help("glance_data")
 glance_data(iris)
 ```
 
-#### `glance_data_in_worksheet`
+#### `glance_data_in_workbook`
 
 ``` r
 ## Load package

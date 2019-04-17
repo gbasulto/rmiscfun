@@ -33,6 +33,11 @@ The goal of rmiscfun is provide call functions that I use in different projects 
 ``` r
 install.packages("devtools")
 ```
+1. Install `tidyverse` package in `R`. I use functions from several tidyverse packages, so it is better to have them all installed.
+
+``` r
+install.packages("tidyverse")
+```
 
 ## Installation
 
@@ -67,7 +72,7 @@ glance_data(iris)
 
 ```
 
-#### `glance_data_in_worksheet`
+#### `glance_data_in_workbook`
 
 
 ```{r glance_data_in_worksheet, eval = FALSE}

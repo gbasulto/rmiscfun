@@ -47,8 +47,8 @@ Available Functions
 <td align="left">Summarize both, categorical and numerical variables in a dataframe</td>
 </tr>
 <tr class="even">
-<td align="left"><code>glance_data_in_worksheet</code></td>
-<td align="left">Similar to <code>glance_data</code>, but it breaks the summary into types and allows the used to save it in an Excel Worksheet</td>
+<td align="left"><code>glance_data_in_workbook</code></td>
+<td align="left">Similar to <code>glance_data</code>, but it breaks the summary into types and allows the used to save it in an Excel Workbook</td>
 </tr>
 </tbody>
 </table>
@@ -76,10 +76,10 @@ glance_data(iris)
 library(rmiscfun)
 
 ## Check documentation
-help("glance_data_in_worksheet")
+help("glance_data_in_workbook")
 
 ## Summarize iris dataset
-glance_data_in_worksheet(iris)
+glance_data_in_workbook(iris)
 
 ## Uncomment the following line to summarize iris dataset AND create Excel Worksheet
 ## glance_data_in_worksheet(iris, "iris_in_excel.xlsx")

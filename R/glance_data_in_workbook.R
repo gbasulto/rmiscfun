@@ -1,4 +1,4 @@
-##' Export glance data to Excel Worksheet
+##' Export glance data to Excel Workbook
 ##'
 ##' It is similar to \code{\link{glance_data}} but instead of creating
 ##' a single dataframe, it creates a list of seven dataframes:
@@ -33,16 +33,16 @@
 ##'     tally lst
 ##' @importFrom openxlsx write.xlsx
 ##' @examples
-##' glance_data_in_worksheet(iris)
+##' glance_data_in_workbook(iris)
 ##'
 ##' ## If you want to save the list into an XLSX file, add the name of
 ##' #the file.
 ##' \dontrun{
-##' glance_data_in_worksheet(iris, "summary_of_iris.xlsx")
+##' glance_data_in_workbook(iris, "summary_of_iris.xlsx")
 ##' }
 ##' @author Guillermo Basulto-Elias
 ##' @export
-glance_data_in_worksheet <- function(dataframe, filename = NULL) {
+glance_data_in_workbook <- function(dataframe, filename = NULL) {
 
     ## The following lines are intended to pass the package tests.
     distinct_values  <- 0

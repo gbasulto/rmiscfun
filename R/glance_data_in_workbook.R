@@ -113,7 +113,7 @@ glance_data_in_workbook <- function(dataframe, filename = NULL) {
             categorical
         )
 
-    if (!is.null(filename)) return (write.xlsx(out, file = filename))
+    if (!is.null(filename)) write.xlsx(out, file = filename)
 
     out
 

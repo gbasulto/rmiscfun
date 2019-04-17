@@ -14,15 +14,15 @@ Prerequisites
 1.  Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) (Only if you are on Windows): Download and execute the recommended EXE file in [this link](https://cran.r-project.org/bin/windows/Rtools/).
 2.  Install `devtools` package in `R`:
 
-``` r
-install.packages("devtools")
-```
+    ``` r
+    install.packages("devtools")
+    ```
 
-1.  Install `tidyverse` package in `R`. I use functions from several tidyverse packages, so it is better to have them all installed.
+3.  Install `tidyverse` package in `R`. I use functions from several tidyverse packages, so it is better to have them all installed.
 
-``` r
-install.packages("tidyverse")
-```
+    ``` r
+    install.packages("tidyverse")
+    ```
 
 Installation
 ------------

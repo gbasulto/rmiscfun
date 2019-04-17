@@ -82,5 +82,5 @@ help("glance_data_in_workbook")
 glance_data_in_workbook(iris)
 
 ## Uncomment the following line to summarize iris dataset AND create Excel Worksheet
-## glance_data_in_worksheet(iris, "iris_in_excel.xlsx")
+## glance_data_in_workbook(iris, "iris_in_excel.xlsx")
 ```

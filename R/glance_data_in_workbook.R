@@ -67,7 +67,7 @@ glance_data_in_workbook <- function(dataframe,
     ## All NAs
     all_nas  <- all %>%
         filter(.data$distinct_values == 0) %>%
-        select(-"minimum", -"median", -"maximum")
+        select(-"minimum", -"median", -"maximum", -"mean", -"sd")
 
     ## Single Value
     single_value <-  filter(all, .data$distinct_values == 1)
@@ -85,7 +85,8 @@ glance_data_in_workbook <- function(dataframe,
     categorical <- all %>%
         filter(.data$type %in%  c("categorical", "factor"),
                .data$distinct_values > 2) %>%
-        select(-"type", -"minimum", -"median", -"maximum")
+        select(- "type", - "minimum", - "median",
+               - "maximum", - "mean", - "sd")
 
     out <- lst(all, summary, all_nas, single_value,
                binary, numerical, categorical)

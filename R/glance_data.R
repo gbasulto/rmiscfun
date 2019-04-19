@@ -77,6 +77,9 @@ count_distinc_values <- function (x) {
 ##' values.}
 ##' \item{\code{maximum}}{Maximum of numerical columns expluding NA
 ##' values.}
+##' \item{\code{mean}}{Mean of numerical variables. It ignores NAs.}
+##' \item{\code{sd}}{Standard deviation of numerical variables. It
+##' ignores NAs.}
 ##' \item{\code{na_proportion}}{Proportion of NAs.}
 ##' \item{\code{count}}{Tally of values if the column has 5 values at
 ##' most. This value (5) can be modified with the parameter
@@ -95,7 +98,7 @@ count_distinc_values <- function (x) {
 ##' @return A \code{tibble}.
 ##' @importFrom tibble tibble
 ##' @importFrom purrr map_chr map_dbl map_int
-##' @importFrom stats median
+##' @importFrom stats median sd
 ##' @importFrom dplyr %>%
 ##' @importFrom utils head
 ##' @examples
@@ -116,6 +119,10 @@ glance_data <- function(x, limit2tally = 5) {
                     median, na.rm = TRUE),
         maximum =
             map_dbl(x, summarize_num_vector, max, na.rm = TRUE),
+        mean =
+            map_dbl(x, summarize_num_vector, mean, na.rm = TRUE),
+        sd =
+            map_dbl(x, summarize_num_vector, sd, na.rm = TRUE),
         na_proportion =
             map_dbl(x, ~ mean(is.na(.x))),
         count = map_chr(x, print_tally,

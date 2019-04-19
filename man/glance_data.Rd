@@ -34,6 +34,9 @@ values.}
 values.}
 \item{\code{maximum}}{Maximum of numerical columns expluding NA
 values.}
+\item{\code{mean}}{Mean of numerical variables. It ignores NAs.}
+\item{\code{sd}}{Standard deviation of numerical variables. It
+ignores NAs.}
 \item{\code{na_proportion}}{Proportion of NAs.}
 \item{\code{count}}{Tally of values if the column has 5 values at
 most. This value (5) can be modified with the parameter

@@ -28,6 +28,7 @@
 ##' @param filename File name of the Excel file, e.g.,
 ##'     "mydataglance.xlsx". By default, no file name is provided and,
 ##'     therefore, no Excel is created.
+##' @inheritParams glance_data
 ##' @return A list
 ##' @importFrom dplyr select mutate filter %>% case_when group_by
 ##'     tally lst
@@ -42,7 +43,9 @@
 ##' }
 ##' @author Guillermo Basulto-Elias
 ##' @export
-glance_data_in_workbook <- function(dataframe, filename = NULL) {
+glance_data_in_workbook <- function(dataframe,
+                                    filename = NULL,
+                                    limit2tally = 5) {
 
     ## The following lines are intended to pass the package tests.
     distinct_values  <- 0
@@ -50,7 +53,7 @@ glance_data_in_workbook <- function(dataframe, filename = NULL) {
     count  <- 0
 
     ## All
-    all <- glance_data(dataframe)
+    all <- glance_data(dataframe, limit2tally)
 
     ## Summary of variables
     summary  <-
@@ -96,23 +99,10 @@ glance_data_in_workbook <- function(dataframe, filename = NULL) {
         select(-"type", -"minimum", -"median", -"maximum")
 
     out <-
-        lst(
-            ## All
-            all,
-            ## Summary of variables
-            summary,
-            ## All NAs
-            all_nas,
-            ## Single Value
-            single_value,
-            ## Binary
-            binary,
-            ## Numerical
-            numerical,
-            ## Categorical
-            categorical
-        )
+        lst(all, summary, all_nas, single_value, binary, numerical,
+            categorical)
 
+    ## Save XLSX if required
     if (!is.null(filename)) write.xlsx(out, file = filename)
 
     out

@@ -4,7 +4,7 @@
 \alias{glance_data_in_workbook}
 \title{Export glance data to Excel Workbook}
 \usage{
-glance_data_in_workbook(dataframe, filename = NULL)
+glance_data_in_workbook(dataframe, filename = NULL, limit2tally = 5)
 }
 \arguments{
 \item{dataframe}{Dataframe to be summarized}
@@ -12,6 +12,13 @@ glance_data_in_workbook(dataframe, filename = NULL)
 \item{filename}{File name of the Excel file, e.g.,
 "mydataglance.xlsx". By default, no file name is provided and,
 therefore, no Excel is created.}
+
+\item{limit2tally}{One of the summaries is a tally of the distinct
+values on each column. If there are too many different values
+in a column, this summary would be meaningless. This
+\code{limit2tally} is the limit of distinct values to
+tally. If there are more than that it returns
+"Too many unique values".}
 }
 \value{
 A list

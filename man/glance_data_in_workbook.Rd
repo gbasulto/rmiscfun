@@ -27,7 +27,7 @@ A list
 It is similar to \code{\link{glance_data}} but instead of creating
 a single dataframe, it creates a list of seven dataframes:
 \describe{
-\item{\code{all}}{Same output as \code{\link{glance_data}}}.
+\item{\code{all}}{Same output as \code{\link{glance_data}}.}
 \item{\code{summary}}{A tally of columns by type. A dataframe with
 two columns: column type and count.}
 \item{\code{all_nas}}{Summary of columns with only NAs.}

@@ -56,8 +56,7 @@ glance_data_in_workbook <- function(dataframe,
     all <- glance_data(dataframe, limit2tally)
 
     ## Summary of variables
-    summary  <-
-        all %>%
+    summary  <- all %>%
         select("type", "distinct_values") %>%
         mutate(cat =
                    case_when(
@@ -70,37 +69,29 @@ glance_data_in_workbook <- function(dataframe,
         tally()
 
     ## All NAs
-    all_nas  <-
-        all %>%
+    all_nas  <- all %>%
         filter(distinct_values == 0) %>%
         select(-"minimum", -"median", -"maximum")
 
     ## Single Value
-    single_value <-
-        all %>%
-        filter(distinct_values == 1)
+    single_value <-  filter(all, distinct_values == 1)
 
     ## Binary
-    binary  <-
-        all %>%
-        filter(distinct_values == 2)
+    binary  <- filter(all, distinct_values == 2)
 
     ## Numerical
-    numerical <-
-        all %>%
+    numerical <- all %>%
         filter(type == "numerical" & distinct_values > 2) %>%
         select(-count)
 
     ## Categorical
-    categorical <-
-        all %>%
+    categorical <- all %>%
         filter(type %in%  c("categorical", "factor"),
                distinct_values > 2) %>%
         select(-"type", -"minimum", -"median", -"maximum")
 
-    out <-
-        lst(all, summary, all_nas, single_value, binary, numerical,
-            categorical)
+    out <- lst(all, summary, all_nas, single_value,
+               binary, numerical, categorical)
 
     ## Save XLSX if required
     if (!is.null(filename)) write.xlsx(out, file = filename)

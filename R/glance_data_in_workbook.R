@@ -44,50 +44,47 @@
 ##' @author Guillermo Basulto-Elias
 ##' @export
 glance_data_in_workbook <- function(dataframe,
-                                    filename = NULL,
-                                    limit2tally = 5) {
-
-    ## The following lines are intended to pass the package tests.
-    distinct_values  <- 0
-    type  <- 0
-    count  <- 0
+                                        filename = NULL,
+                                        limit2tally = 5) {
+    .data <- NULL
 
     ## All
     all <- glance_data(dataframe, limit2tally)
 
     ## Summary of variables
     summary  <- all %>%
-        select("type", "distinct_values") %>%
+        select(.data$type, .data$distinct_values) %>%
         mutate(cat =
                    case_when(
-                       distinct_values == 0 ~ "all nas",
-                       distinct_values == 1 ~ "single value",
-                       distinct_values == 2 ~ "binary",
-                       type == "numerical" ~ "numerical",
+                       .data$distinct_values == 0 ~ "all nas",
+                       .data$distinct_values == 1 ~ "single value",
+                       .data$distinct_values == 2 ~ "binary",
+                       .data$type == "numerical" ~ "numerical",
                        TRUE ~ "categorical")) %>%
         group_by(cat) %>%
         tally()
 
     ## All NAs
     all_nas  <- all %>%
-        filter(distinct_values == 0) %>%
+        filter(.data$distinct_values == 0) %>%
         select(-"minimum", -"median", -"maximum")
 
     ## Single Value
-    single_value <-  filter(all, distinct_values == 1)
+    single_value <-  filter(all, .data$distinct_values == 1)
 
     ## Binary
-    binary  <- filter(all, distinct_values == 2)
+    binary  <- filter(all, .data$distinct_values == 2)
 
     ## Numerical
     numerical <- all %>%
-        filter(type == "numerical" & distinct_values > 2) %>%
-        select(-count)
+        filter(.data$type == "numerical" &
+               .data$distinct_values > 2) %>%
+        select(-.data$count)
 
     ## Categorical
     categorical <- all %>%
-        filter(type %in%  c("categorical", "factor"),
-               distinct_values > 2) %>%
+        filter(.data$type %in%  c("categorical", "factor"),
+               .data$distinct_values > 2) %>%
         select(-"type", -"minimum", -"median", -"maximum")
 
     out <- lst(all, summary, all_nas, single_value,

@@ -16,7 +16,8 @@ Imports:
     purrr,
     tibble,
     forcats,
-    openxlsx
+    openxlsx,
+    rlang
 Suggests: 
     covr,
     spelling,

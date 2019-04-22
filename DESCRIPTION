@@ -27,4 +27,4 @@ Suggests:
     testthat
 Language: en-US
 Depends: 
-    R (>= 3.5.1)
+    R (>= 3.5)

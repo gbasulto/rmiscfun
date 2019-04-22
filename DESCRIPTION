@@ -26,3 +26,5 @@ Suggests:
     spelling,
     testthat
 Language: en-US
+Depends: 
+    R (>= 3.5.1)

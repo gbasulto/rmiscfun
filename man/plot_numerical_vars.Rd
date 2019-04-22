@@ -10,8 +10,7 @@ plot_numerical_vars(x, plot_type)
 \item{x}{Data frame which may include continous and discrete
 variables. Non-continous variables are ignored.}
 
-\item{plot_type}{Plot type. Current options:
-\describe{
+\item{plot_type}{Plot type. Current options: \describe{
 
 \item{\code{"pairwise"}}{Calls \code{\link[GGally]{ggpairs}} to
 get plots of pairwise differences. Avoid it if there are too many
@@ -35,7 +34,8 @@ and \code{\link[ggplot2]{geom_jitter}}.}
 A ggplot object.
 }
 \description{
-Plot all the continous variables.
+Graphical summaries of numerical variables using functions from
+\code{ggplot2} and \code{GGally}.
 }
 \examples{
 library(GGally)

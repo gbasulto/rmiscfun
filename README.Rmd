@@ -56,6 +56,14 @@ devtools::install_github("gbasulto/rmiscfun")
 
 ## Examples
 
+I am using the Iris dataset in R, which has 5 variables. The first four are measurements 150 flores and the last column specifies the species (there are 50 flowers of each species).
+
+```{r iris}
+help(iris)
+
+head(iris)
+```
+
 #### `glance_data`
 
 

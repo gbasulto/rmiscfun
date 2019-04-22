@@ -56,6 +56,10 @@ Available Functions
 <td align="left"><code>glance_data_in_workbook</code></td>
 <td align="left">Similar to <code>glance_data</code>, but it breaks the summary into types and allows the used to save it in an Excel Workbook</td>
 </tr>
+<tr class="odd">
+<td align="left"><code>plot_numerical_vars</code></td>
+<td align="left">Graphical summaries of numerical variables using functions from <code>ggplot2</code> and <code>GGally</code></td>
+</tr>
 </tbody>
 </table>
 
@@ -89,4 +93,20 @@ glance_data_in_workbook(iris)
 
 ## Uncomment the following line to summarize iris dataset AND create Excel Worksheet
 ## glance_data_in_workbook(iris, "iris_in_excel.xlsx")
+```
+
+#### `plot_numerical_vars`
+
+``` r
+## Load package
+library(rmiscfun)
+
+## Check documentation
+help("plot_numerical_vars")
+
+plot_numerical_vars(iris, "pairwise")
+plot_numerical_vars(iris, "density")
+plot_numerical_vars(iris, "boxplot")
+plot_numerical_vars(iris, "violin")
+plot_numerical_vars(iris, "histogram")
 ```

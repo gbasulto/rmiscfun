@@ -51,6 +51,7 @@ devtools::install_github("gbasulto/rmiscfun")
 | :-------------------- | :------------------------------------------------------------|
 | `glance_data`         | Summarize both, categorical and numerical variables in a dataframe |
 | `glance_data_in_workbook` | Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Workbook |
+| `plot_numerical_vars` | Graphical summaries of numerical variables using functions from `ggplot2` and `GGally`|
 
 
 ## Examples
@@ -89,3 +90,20 @@ glance_data_in_workbook(iris)
 
 ```
 
+
+#### `plot_numerical_vars`
+
+```{r plot_numerical_vars, eval = FALSE}
+## Load package
+library(rmiscfun)
+
+## Check documentation
+help("plot_numerical_vars")
+
+plot_numerical_vars(iris, "pairwise")
+plot_numerical_vars(iris, "density")
+plot_numerical_vars(iris, "boxplot")
+plot_numerical_vars(iris, "violin")
+plot_numerical_vars(iris, "histogram")
+
+```

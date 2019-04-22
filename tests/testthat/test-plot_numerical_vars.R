@@ -39,10 +39,7 @@ test_that("pairwise is a list of length 20", {
 })
 
 
-# test_that("should explode", {
-#   myplot <- plot_numerical_vars(iris, "nonexistent")
-#   mymode <- mode(myplot)
-#   mylength <- length(myplot)
-#   expect_true(mymode == "list" & mylength == 9)
-# })
+test_that("should explode", {
+  expect_error( plot_numerical_vars(iris, "nonexistent"))
+})
 

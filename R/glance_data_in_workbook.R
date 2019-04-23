@@ -97,7 +97,7 @@ glance_data_in_workbook <- function(dataframe,
             stop("Output file must be 'xlsx'")
         }
         write.xlsx(out, file = filename)
-        }
+    }
 
     out
 

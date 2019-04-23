@@ -92,7 +92,12 @@ glance_data_in_workbook <- function(dataframe,
                binary, numerical, categorical)
 
     ## Save XLSX if required
-    if (!is.null(filename)) write.xlsx(out, file = filename)
+    if (!is.null(filename)) {
+        if (!grepl("\\.xlsx$", filename)) {
+            stop("Output file must be 'xlsx'")
+        }
+        write.xlsx(out, file = filename)
+        }
 
     out
 

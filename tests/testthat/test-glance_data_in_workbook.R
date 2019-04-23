@@ -15,3 +15,7 @@ test_that("size of each list element", {
 })
 
 
+test_that("output format error message", {
+  filename <- "wrongformat.doc"
+  expect_error(glance_data_in_workbook(iris, filename))
+})

@@ -1,3 +1,4 @@
+## -------------------------------------------------------------------
 
 ##' Plot Continous Variables
 ##'
@@ -53,7 +54,7 @@ plot_numerical_vars <- function(x, plot_type) {
     value <- NULL
 
     ## Get transparency for rug and jitter
-    trans <- 10/n
+    trans <- min(c(20/n, 1))
 
     if (plot_type == "pairwise") {
         out <- ggpairs(x)
@@ -63,7 +64,7 @@ plot_numerical_vars <- function(x, plot_type) {
             out <-
                 x %>%
                 ggplot(aes(value)) +
-                geom_density(fill = "white") +
+                geom_density(fill = "grey92") +
                 facet_wrap(~key, scales = "free") +
                 geom_rug(alpha = trans) +
                 theme(axis.title.x = element_blank())

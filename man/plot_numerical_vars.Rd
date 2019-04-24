@@ -28,6 +28,10 @@ and \code{\link[ggplot2]{geom_jitter}}.}
 
 \item{\code{"boxplot"}}{Calls
 \code{\link[ggplot2]{geom_boxplot}}.}
+
+\item{\code{"qqplot"}}{Calls
+\code{\link[ggplot2]{stat_qq_line}} and
+\code{\link[ggplot2]{stat_qq}}.}
 }}
 }
 \value{
@@ -45,6 +49,7 @@ plot_numerical_vars(iris, "density")
 plot_numerical_vars(iris, "boxplot")
 plot_numerical_vars(iris, "violin")
 plot_numerical_vars(iris, "histogram")
+plot_numerical_vars(iris, "qqplot")
 }
 \author{
 Guillermo Basulto-Elias

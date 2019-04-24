@@ -24,6 +24,10 @@
 ##'
 ##' \item{\code{"boxplot"}}{Calls
 ##' \code{\link[ggplot2]{geom_boxplot}}.}
+##'
+##' \item{\code{"qqplot"}}{Calls
+##' \code{\link[ggplot2]{stat_qq_line}} and
+##' \code{\link[ggplot2]{stat_qq}}.}
 ##' }
 ##' @return A ggplot object.
 ##' @importFrom dplyr select_if mutate
@@ -31,7 +35,7 @@
 ##' @importFrom GGally ggpairs
 ##' @importFrom ggplot2 ggplot geom_density geom_boxplot geom_violin
 ##'     geom_histogram facet_wrap coord_flip theme aes element_blank
-##'     geom_rug geom_jitter theme_bw
+##'     geom_rug geom_jitter theme_bw stat_qq stat_qq_line
 ##' @examples
 ##' library(GGally)
 ##'
@@ -40,6 +44,7 @@
 ##' plot_numerical_vars(iris, "boxplot")
 ##' plot_numerical_vars(iris, "violin")
 ##' plot_numerical_vars(iris, "histogram")
+##' plot_numerical_vars(iris, "qqplot")
 ##' @author Guillermo Basulto-Elias
 ##' @export
 plot_numerical_vars <- function(x, plot_type) {
@@ -58,10 +63,11 @@ plot_numerical_vars <- function(x, plot_type) {
 
     ## Use long format required for some plots and add dummy variable
     ## to generate plots.
-    if (plot_type %in% c("density", "histogram",
-                         "violin", "boxplot")) {
+    if (plot_type %in% c("density", "histogram", "violin",
+                         "boxplot", "qqplot")) {
         x  <- gather(x)
-        x  <- mutate(x, x = "")
+        xxxx <- NULL                    # To pass R CMD CHECK
+        x  <- mutate(x, xxxx = "")
     }
 
     out <-
@@ -71,7 +77,6 @@ plot_numerical_vars <- function(x, plot_type) {
                    x %>%
                        ggplot(aes(value)) +
                        geom_density(fill = "grey92") +
-                       ## facet_wrap(~key, scales = "free") +
                        geom_rug(alpha = trans) +
                        theme(axis.title.x = element_blank())
                },
@@ -79,31 +84,34 @@ plot_numerical_vars <- function(x, plot_type) {
                    x %>%
                        ggplot(aes(value)) +
                        geom_histogram() +
-                       ## facet_wrap(~key, scales = "free") +
                        geom_rug(alpha = trans) +
                        theme(axis.title.x = element_blank())
                },
                violin =  {
                    x %>%
-                       ggplot(aes(x, value)) +
+                       ggplot(aes(xxxx, value)) +
                        geom_violin() +
-                       ## facet_wrap(~key, scales = "free") +
                        geom_jitter(alpha = trans) +
                        coord_flip() +
                        theme(axis.title.x = element_blank())
                },
                boxplot = {
                    x %>%
-                       ggplot(aes(x, value)) +
+                       ggplot(aes(xxxx, value)) +
                        geom_boxplot(fill = "grey92") +
-                       ## facet_wrap(~key, scales = "free") +
                        coord_flip()
+               },
+               qqplot = {
+                   x %>%
+                       ggplot(aes(sample = value)) +
+                       stat_qq_line(col = "blue") +
+                       stat_qq(alpha = 0.3)
                }
                )
 
     ## Split by columns
     if (plot_type %in% c("density", "histogram",
-                         "violin", "boxplot")) {
+                         "violin", "boxplot", "qqplot")) {
         out <- out + facet_wrap(~key, scales = "free")
     }
 

@@ -1,3 +1,5 @@
+# rmiscfun 1.2.0
+
 # rmiscfun (development version)
 
 - Clean out code.

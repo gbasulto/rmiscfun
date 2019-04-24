@@ -114,5 +114,6 @@ plot_numerical_vars(iris, "density")
 plot_numerical_vars(iris, "boxplot")
 plot_numerical_vars(iris, "violin")
 plot_numerical_vars(iris, "histogram")
+plot_numerical_vars(iris, "qqplot")
 
 ```

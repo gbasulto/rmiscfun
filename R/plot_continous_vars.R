@@ -56,50 +56,54 @@ plot_numerical_vars <- function(x, plot_type) {
     ## Get transparency for rug and jitter
     trans <- min(c(20/n, 1))
 
-    if (plot_type == "pairwise") {
-        out <- ggpairs(x)
-    } else {
-        x <- gather(x)
-        if (plot_type == "density") {
-            out <-
-                x %>%
-                ggplot(aes(value)) +
-                geom_density(fill = "grey92") +
-                facet_wrap(~key, scales = "free") +
-                geom_rug(alpha = trans) +
-                theme(axis.title.x = element_blank())
-        } else if (plot_type == "histogram") {
-            out <-
-                x %>%
-                ggplot(aes(value)) +
-                geom_histogram() +
-                facet_wrap(~key, scales = "free") +
-                geom_rug(alpha = trans) +
-                theme(axis.title.x = element_blank())
-        } else if (plot_type == "violin") {
-            out <-
-                x  %>%
-                mutate(x = "") %>%
-                ggplot(aes(x, value)) +
-                geom_violin() +
-                facet_wrap(~key, scales = "free") +
-                geom_jitter(alpha = trans) +
-                coord_flip() +
-                theme(axis.title.x = element_blank())
-        } else if (plot_type == "boxplot") {
-            out <-
-                x %>%
-                mutate(x = "") %>%
-                ggplot(aes(x, value)) +
-                geom_boxplot() +
-                facet_wrap(~key, scales = "free") +
-                coord_flip()
-        } else {
-            stop ("Plot type not defined.")
-        }
-    }
+    out <-
+        switch(plot_type,
+               pairwise = ggpairs(x),
+               density = {
+                   x <- gather(x)
+                   out <-
+                       x %>%
+                       ggplot(aes(value)) +
+                       geom_density(fill = "grey92") +
+                       facet_wrap(~key, scales = "free") +
+                       geom_rug(alpha = trans) +
+                       theme(axis.title.x = element_blank())
+               },
+               histogram = {
+                   x <- gather(x)
+                   out <-
+                       x %>%
+                       ggplot(aes(value)) +
+                       geom_histogram() +
+                       facet_wrap(~key, scales = "free") +
+                       geom_rug(alpha = trans) +
+                       theme(axis.title.x = element_blank())
+               },
+               violin =  {
+                   out <-
+                       x <- gather(x)
+                   x  %>%
+                       mutate(x = "") %>%
+                       ggplot(aes(x, value)) +
+                       geom_violin() +
+                       facet_wrap(~key, scales = "free") +
+                       geom_jitter(alpha = trans) +
+                    coord_flip() +
+                    theme(axis.title.x = element_blank())
+               },
+               boxplot = {
+                   out <-
+                       x <- gather(x)
+                   x %>%
+                       mutate(x = "") %>%
+                       ggplot(aes(x, value)) +
+                       geom_boxplot() +
+                       facet_wrap(~key, scales = "free") +
+                       coord_flip()
+               }
+               )
+
+    if (is.null(out)) stop ("Plot type not defined.")
+
     out + theme_bw()
 }
-
-
-

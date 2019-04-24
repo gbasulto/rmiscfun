@@ -1,5 +1,7 @@
 # rmiscfun 1.3.0
 
+- Added `clean_colnames` to clean colunm names.
+
 # rmiscfun 1.2.0
 
 - Added qq plots to `plot_numerical_vars`

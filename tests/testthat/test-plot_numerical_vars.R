@@ -30,6 +30,12 @@ test_that("violin is a list of length 9", {
   expect_true(mymode == "list" & mylength == 9)
 })
 
+test_that("qqplot is a list of length 9", {
+  myplot <- plot_numerical_vars(iris, "qqplot")
+  mymode <- mode(myplot)
+  mylength <- length(myplot)
+  expect_true(mymode == "list" & mylength == 9)
+})
 
 test_that("pairwise is a list of length 20", {
   myplot <- plot_numerical_vars(iris, "pairwise")

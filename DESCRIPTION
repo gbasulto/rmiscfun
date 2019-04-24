@@ -20,11 +20,12 @@ Imports:
     rlang,
     ggplot2,
     GGally,
-    tidyr
+    tidyr,
+    stringr
 Suggests: 
     covr,
     spelling,
-    testthat
+    testthat (>= 2.1.0)
 Language: en-US
 Depends: 
     R (>= 3.5)

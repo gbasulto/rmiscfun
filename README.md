@@ -60,6 +60,10 @@ Available Functions
 <td align="left"><code>plot_numerical_vars</code></td>
 <td align="left">Graphical summaries of numerical variables using functions from <code>ggplot2</code> and <code>GGally</code></td>
 </tr>
+<tr class="even">
+<td align="left"><code>clean_colnames</code></td>
+<td align="left">Clean column names</td>
+</tr>
 </tbody>
 </table>
 
@@ -126,4 +130,18 @@ plot_numerical_vars(iris, "boxplot")
 plot_numerical_vars(iris, "violin")
 plot_numerical_vars(iris, "histogram")
 plot_numerical_vars(iris, "qqplot")
+```
+
+#### `clean_colnames`
+
+``` r
+## Load package
+library(rmiscfun)
+
+## Check documentation
+help("clean_colnames")
+
+input <- c("bart Simpson", "LisaSimpson", "maggie..simpson!",
+                 "MARGE-Simpson", "Homer Simpson :-)")
+clean_colnames(input)
 ```

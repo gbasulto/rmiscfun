@@ -1,3 +1,5 @@
+# rmiscfun 1.3.0
+
 # rmiscfun 1.2.0
 
 - Added qq plots to `plot_numerical_vars`

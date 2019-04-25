@@ -20,6 +20,6 @@ test_that("test all column types",{
   out$setosa <-  iris$Species == "Setosa"
   out$chr_species <-  as.character(iris$Species)
   out$all_nas <-  NA
-  expect_true(length(names(out)) == 8)
+  expect_true(nrow(glance_data(out)) == 8)
 })
 

@@ -15,3 +15,11 @@ test_that("check types",{
 expect_true(all_good)
 })
 
+test_that("test all column types",{
+  out <- iris
+  out$setosa <-  iris$Species == "Setosa"
+  out$chr_species <-  as.character(iris$Species)
+  out$all_nas <-  NA
+  expect_true(length(names(out)) == 8)
+})
+

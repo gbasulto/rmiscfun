@@ -10,7 +10,7 @@ print_duplicated_columns <- function(x) {
 ##'
 ##' It cleans column names (my relative definition of
 ##' 'clean'). Specifically, it separates with underscore (e.g.,
-##' "pikaPika" to "pika_pika"), replaces blank spaces with underscore,
+##' "pikaPika" to "pika_Pika"), replaces blank spaces with underscore,
 ##' replaces multiple symbols with single underscore, and removes
 ##' symbols after last word. These steps are followed IN THAT ORDER.
 ##' @importFrom stringr str_replace_all str_to_lower
@@ -31,10 +31,15 @@ print_duplicated_columns <- function(x) {
 ##' @export
 clean_colnames <- function(column_names) {
   out <- column_names  %>%
+    ## "pikaPika" to "pikaPika"
     str_replace_all("([a-z]+)([A-Z])", "\\1_\\2") %>%
+    ## Replaces blank spaces by an underscore
     str_replace_all("[:blank:]+", "_") %>%
+    ## Replace punctuation by underscore
     str_replace_all("[:punct:]+", "_") %>%
+    ## Remove underscore at the end
     str_replace_all("_+$", "") %>%
+    ## From upper to lower case
     str_to_lower()
 
   ## Compute number of unique names
@@ -51,5 +56,3 @@ clean_colnames <- function(column_names) {
 
   out
 }
-
-

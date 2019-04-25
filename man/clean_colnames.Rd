@@ -15,7 +15,7 @@ A vector with clean names
 \description{
 It cleans column names (my relative definition of
 'clean'). Specifically, it separates with underscore (e.g.,
-"pikaPika" to "pika_pika"), replaces blank spaces with underscore,
+"pikaPika" to "pika_Pika"), replaces blank spaces with underscore,
 replaces multiple symbols with single underscore, and removes
 symbols after last word. These steps are followed IN THAT ORDER.
 }

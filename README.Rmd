@@ -1,5 +1,7 @@
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -53,6 +55,7 @@ devtools::install_github("gbasulto/rmiscfun")
 | `glance_data_in_workbook` | Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Workbook |
 | `plot_numerical_vars` | Graphical summaries of numerical variables using functions from `ggplot2` and `GGally`|
 | `clean_colnames` | Clean column names |
+| `clean_col_content` | Clean column content if a variable is character or factor |
 
 ## Examples
 
@@ -132,4 +135,21 @@ input <- c("bart Simpson", "LisaSimpson", "maggie..simpson!",
                  "MARGE-Simpson", "Homer Simpson :-)")
 clean_colnames(input)
 
+```
+
+#### `clean_col_content`
+
+```{r clean_col_content, eval = FALSE}
+library(rmiscfun)
+
+clean_col_content(c("bart Simpson", "LisaSimpson",
+                    "maggie..simpson!",
+                    "MARGE-Simpson", "Homer Simpson :-)"))
+
+## Get warning for factors.
+clean_col_content(
+  factor(c("bart  Simpson", "LisaSimpson",
+           "maggie..simpson!", "MARGE-Simpson",
+           "bart  Simpson", "Homer Simpson :-)"))
+)
 ```

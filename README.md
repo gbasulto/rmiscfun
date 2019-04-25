@@ -64,6 +64,10 @@ Available Functions
 <td align="left"><code>clean_colnames</code></td>
 <td align="left">Clean column names</td>
 </tr>
+<tr class="odd">
+<td align="left"><code>clean_col_content</code></td>
+<td align="left">Clean column content if a variable is character or factor</td>
+</tr>
 </tbody>
 </table>
 
@@ -144,4 +148,21 @@ help("clean_colnames")
 input <- c("bart Simpson", "LisaSimpson", "maggie..simpson!",
                  "MARGE-Simpson", "Homer Simpson :-)")
 clean_colnames(input)
+```
+
+#### `clean_col_content`
+
+``` r
+library(rmiscfun)
+
+clean_col_content(c("bart Simpson", "LisaSimpson",
+                    "maggie..simpson!",
+                    "MARGE-Simpson", "Homer Simpson :-)"))
+
+## Get warning for factors.
+clean_col_content(
+  factor(c("bart  Simpson", "LisaSimpson",
+           "maggie..simpson!", "MARGE-Simpson",
+           "bart  Simpson", "Homer Simpson :-)"))
+)
 ```

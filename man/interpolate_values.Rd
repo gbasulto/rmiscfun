@@ -22,6 +22,12 @@ A vector of size n.
 Obtain the values of a variable of interest corresponding to a
 continuous variable (\code{t_out}) using
 }
+\examples{
+ x <- c(1, 2, 4, 5)
+ y <- c(1, 3, 7)
+ z <- c("a", "b", "a")
+ interpolate_values(x, y, z)
+}
 \author{
 Guillermo Basulto Elias
 }

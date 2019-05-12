@@ -14,6 +14,11 @@
 ##' @importFrom tibble tibble
 ##' @importFrom tidyr fill
 ##' @importFrom dplyr full_join arrange left_join
+##' @examples
+##'  x <- c(1, 2, 4, 5)
+##'  y <- c(1, 3, 7)
+##'  z <- c("a", "b", "a")
+##'  interpolate_values(x, y, z)
 ##' @export
 interpolate_values <- function(t_out,
                                t_in,

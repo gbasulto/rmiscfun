@@ -1,6 +1,6 @@
 ##' Clean column content
 ##'
-##' It cleans colum content (my relative definition of
+##' It cleans column content (my relative definition of
 ##' 'clean'). Specifically, it separates with underscore (e.g.,
 ##' "pikaPika" to "pika_Pika"), replaces blank spaces with underscore,
 ##' replaces multiple symbols with single underscore, and removes
@@ -10,7 +10,7 @@
 ##' other than character and factors.
 ##'
 ##' It is basically the same as \code{\link{clean_colnames}}. The idea
-##' is that they do slighly different things in the future. The
+##' is that they do slightly different things in the future. The
 ##' difference is that \code{\link{clean_colnames}} gives a warning
 ##' for repeated column names while \code{clean_col_content} gives
 ##' instead a warning if the column is a factor.

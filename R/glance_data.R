@@ -71,11 +71,11 @@ count_distinc_values <- function (x) {
 ##' \item{\code{distinct_values}}{Count of distinct values. It ignores
 ##' NA values. Thus, if a columns only has NAs, then the value of this
 ##' field will be zero.}
-##' \item{\code{minimum}}{Minimum of numerical columns expluding NA
+##' \item{\code{minimum}}{Minimum of numerical columns excluding NA
 ##' values.}
 ##' \item{\code{median}}{Median of numerical columns excluding NA
 ##' values.}
-##' \item{\code{maximum}}{Maximum of numerical columns expluding NA
+##' \item{\code{maximum}}{Maximum of numerical columns excluding NA
 ##' values.}
 ##' \item{\code{mean}}{Mean of numerical variables. It ignores NAs.}
 ##' \item{\code{sd}}{Standard deviation of numerical variables. It

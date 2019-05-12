@@ -1,11 +1,11 @@
 ## -------------------------------------------------------------------
 
-##' Plot Continous Variables
+##' Plot Continuous Variables
 ##'
 ##' Graphical summaries of numerical variables using functions from
 ##' \code{ggplot2} and \code{GGally}.
-##' @param x Data frame which may include continous and discrete
-##'     variables. Non-continous variables are ignored.
+##' @param x Data frame which may include continuous and discrete
+##'     variables. Non-continuous variables are ignored.
 ##' @param plot_type Plot type. Current options: \describe{
 ##'
 ##' \item{\code{"pairwise"}}{Calls \code{\link[GGally]{ggpairs}} to

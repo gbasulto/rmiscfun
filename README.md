@@ -74,7 +74,7 @@ Available Functions
 Examples
 --------
 
-I am using the Iris dataset in R, which has 5 variables. The first four are measurements 150 flores and the last column specifies the species (there are 50 flowers of each species).
+I am using the Iris dataset in R, which has 5 variables. The first four are measurements 150 flowers and the last column specifies the species (there are 50 flowers of each species).
 
 ``` r
 ## Uncomment the following line to read the documentation of the dataset.

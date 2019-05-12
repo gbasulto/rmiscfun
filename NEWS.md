@@ -4,7 +4,7 @@
 
 # rmiscfun 1.3.0
 
-- Added `clean_colnames` to clean colunm names.
+- Added `clean_colnames` to clean column names.
 
 # rmiscfun 1.2.0
 

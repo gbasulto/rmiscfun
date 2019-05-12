@@ -2,13 +2,13 @@
 % Please edit documentation in R/plot_continous_vars.R
 \name{plot_numerical_vars}
 \alias{plot_numerical_vars}
-\title{Plot Continous Variables}
+\title{Plot Continuous Variables}
 \usage{
 plot_numerical_vars(x, plot_type)
 }
 \arguments{
-\item{x}{Data frame which may include continous and discrete
-variables. Non-continous variables are ignored.}
+\item{x}{Data frame which may include continuous and discrete
+variables. Non-continuous variables are ignored.}
 
 \item{plot_type}{Plot type. Current options: \describe{
 

@@ -41,7 +41,9 @@ interpolate_values <- function(t_out,
     df <- fill(df, y, .direction = direction)
 
     ## Return a vector
-    left_join(df0, df)$y
+    out <- left_join(df0, df, by = "x")$y
+
+    return (out)
 }
 
 

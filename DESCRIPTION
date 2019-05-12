@@ -25,7 +25,10 @@ Imports:
 Suggests: 
     covr,
     spelling,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
 Language: en-US
 Depends: 
     R (>= 3.5)
+VignetteBuilder: knitr

@@ -1,0 +1,48 @@
+---
+title: "Interpolate Values"
+author: "Guillermo Basulto-Elias"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Interpolate Values}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<!-- Load packages suppressing messages -->
+
+```{r, echo = FALSE}
+suppressPackageStartupMessages(library(rmiscfun))
+```
+
+## Description
+
+The function `interpolate_values` interpolates values with respect to another ordered variable. It returns a vector.
+
+Suppose that you have have recorded a variable, say `myvar`, each three seconds. However, you want the values every two seconds. Assume that `myvar` is smooth (if numerical) or does it usually remains on the same value for several measurements, then `interpolate_values` will interpolate the values for you.
+
+The parameter `direction` is set by default to `"down"`. It might also be equal to `"up"`. This is because the function combines the values of the two values of time (`t_out`, `t_in`) and uses `tidyr::fill()` to interpolate the values. The parameter `direction` is `.direction` in the latter function.
+
+## Simple example
+
+```{r setup}
+library(rmiscfun)
+
+df <- data.frame(t = c(1, 3, 7), vals = c("a", "b", "a"))
+
+df
+
+new_t <- c(1, 2, 4, 5)
+new_vals <- with(df, interpolate_values(new_t, t, vals))
+
+data.frame(new_t, new_vals)
+```
+
+## 

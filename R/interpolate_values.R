@@ -13,7 +13,7 @@
 ##' @author Guillermo Basulto Elias
 ##' @importFrom tibble tibble
 ##' @importFrom tidyr fill
-##' @importFrom dplyr full_join arrange left_join
+##' @importFrom dplyr full_join arrange left_join group_by slice n
 ##' @examples
 ##'  x <- c(1, 2, 4, 5)
 ##'  y <- c(1, 3, 7)
@@ -44,6 +44,9 @@ interpolate_values <- function(t_out,
 
     ## Fill dataframes
     df <- fill(df, y, .direction = direction)
+
+    ## Remove duplicate values (if any)
+    df <- slice(group_by(df, x), n())
 
     ## Return a vector
     out <- left_join(df0, df, by = "x")$y

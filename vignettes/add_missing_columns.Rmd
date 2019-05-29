@@ -1,0 +1,50 @@
+---
+title: "Add Missing Columns"
+output: rmarkdown::html_vignette
+author: Guillermo Basulto-Elias
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+vignette: >
+  %\VignetteIndexEntry{Add Missing Columns}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r, message=FALSE, echo=FALSE}
+library(rmiscfun)
+```
+
+
+This function checks if a dataframe has all the columns from a reference vector of strings. It appends the missing columns and fills them out with a given value.
+
+I created this function to be able to bind dataframes by rows and some of the columns are missing.
+
+```{r setup}
+library(rmiscfun)
+
+## This vector has two columns: a and b.
+input_df <- data.frame(a = 1:3, b = letters[1:3])
+input_df
+
+## Reference vector
+colnames_vector <- c("b", "c")
+
+## Filler
+filler <- -888
+
+## Output vector
+add_missing_columns(input_df, colnames_vector, filler)
+
+
+## It does nothing if all the columns are present
+add_missing_columns(input_df, c("b"), filler)
+
+
+```

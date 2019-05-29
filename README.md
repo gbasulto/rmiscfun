@@ -1,80 +1,69 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-rmiscfun
-========
+
+# rmiscfun
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/gbasulto/rmiscfun.svg?branch=master)](https://travis-ci.org/gbasulto/rmiscfun) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/gbasulto/rmiscfun?branch=master&svg=true)](https://ci.appveyor.com/project/gbasulto/rmiscfun) [![Codecov test coverage](https://codecov.io/gh/gbasulto/rmiscfun/branch/master/graph/badge.svg)](https://codecov.io/gh/gbasulto/rmiscfun?branch=master) <!-- badges: end -->
 
-The goal of rmiscfun is provide call functions that I use in different projects (at work and personal ones.)
+[![Travis build
+status](https://travis-ci.org/gbasulto/rmiscfun.svg?branch=master)](https://travis-ci.org/gbasulto/rmiscfun)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/gbasulto/rmiscfun?branch=master&svg=true)](https://ci.appveyor.com/project/gbasulto/rmiscfun)
+[![Codecov test
+coverage](https://codecov.io/gh/gbasulto/rmiscfun/branch/master/graph/badge.svg)](https://codecov.io/gh/gbasulto/rmiscfun?branch=master)
+<!-- badges: end -->
 
-Prerequisites
--------------
+The goal of rmiscfun is provide call functions that I use in different
+projects (at work and personal ones.)
 
-1.  Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) (Only if you are on Windows): Download and execute the recommended EXE file in [this link](https://cran.r-project.org/bin/windows/Rtools/).
+## Prerequisites
+
+1.  Install [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
+    (Only if you are on Windows): Download and execute the recommended
+    EXE file in [this
+    link](https://cran.r-project.org/bin/windows/Rtools/).
 2.  Install `devtools` package in `R`:
 
-    ``` r
-    install.packages("devtools")
-    ```
+<!-- end list -->
 
-3.  Install `tidyverse` package in `R`. I use functions from several tidyverse packages, so it is better to have them all installed.
+``` r
+install.packages("devtools")
+```
 
-    ``` r
-    install.packages("tidyverse")
-    ```
+1.  Install `tidyverse` package in `R`. I use functions from several
+    tidyverse packages, so it is better to have them all installed.
 
-Installation
-------------
+<!-- end list -->
 
-You can install the current version of rmiscfun from [GitHub](https://github.com/) with:
+``` r
+install.packages("tidyverse")
+```
+
+## Installation
+
+You can install the current version of rmiscfun from
+[GitHub](https://github.com/) with:
 
 ``` r
 devtools::install_github("gbasulto/rmiscfun")
 ```
 
-Available Functions
--------------------
+## Available Functions
 
-<table>
-<colgroup>
-<col width="26%" />
-<col width="73%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Function</th>
-<th align="left">Brief description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>glance_data</code></td>
-<td align="left">Summarize both, categorical and numerical variables in a dataframe</td>
-</tr>
-<tr class="even">
-<td align="left"><code>glance_data_in_workbook</code></td>
-<td align="left">Similar to <code>glance_data</code>, but it breaks the summary into types and allows the used to save it in an Excel Workbook</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>plot_numerical_vars</code></td>
-<td align="left">Graphical summaries of numerical variables using functions from <code>ggplot2</code> and <code>GGally</code></td>
-</tr>
-<tr class="even">
-<td align="left"><code>clean_colnames</code></td>
-<td align="left">Clean column names</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>clean_col_content</code></td>
-<td align="left">Clean column content if a variable is character or factor</td>
-</tr>
-</tbody>
-</table>
+| Function                  | Brief description                                                                                                  |
+| :------------------------ | :----------------------------------------------------------------------------------------------------------------- |
+| `glance_data`             | Summarize both, categorical and numerical variables in a dataframe                                                 |
+| `glance_data_in_workbook` | Similar to `glance_data`, but it breaks the summary into types and allows the used to save it in an Excel Workbook |
+| `plot_numerical_vars`     | Graphical summaries of numerical variables using functions from `ggplot2` and `GGally`                             |
+| `clean_colnames`          | Clean column names                                                                                                 |
+| `clean_col_content`       | Clean column content if a variable is character or factor                                                          |
+| `add_missing_columns`     | Append all the columns not present in a reference vector                                                           |
 
-Examples
---------
+## Examples
 
-I am using the Iris dataset in R, which has 5 variables. The first four are measurements 150 flowers and the last column specifies the species (there are 50 flowers of each species).
+I am using the Iris dataset in R, which has 5 variables. The first four
+are measurements 150 flowers and the last column specifies the species
+(there are 50 flowers of each species).
 
 ``` r
 ## Uncomment the following line to read the documentation of the dataset.
@@ -165,4 +154,21 @@ clean_col_content(
            "maggie..simpson!", "MARGE-Simpson",
            "bart  Simpson", "Homer Simpson :-)"))
 )
+```
+
+### `add_missing_columns`
+
+``` r
+library(rmiscfun)
+
+input_df <- data.frame(a = 1:3, b = letters[1:3])
+
+## Reference vector
+colnames_vector <- c("b", "c")
+
+## Filler
+filler <- -888
+
+## Output vector
+add_missing_columns(input_df, colnames_vector, filler)
 ```

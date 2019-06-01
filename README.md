@@ -42,7 +42,8 @@ install.packages("tidyverse")
 ## Installation
 
 You can install the current version of rmiscfun from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/)
+with:
 
 ``` r
 devtools::install_github("gbasulto/rmiscfun")
@@ -57,13 +58,15 @@ devtools::install_github("gbasulto/rmiscfun")
 | `plot_numerical_vars`     | Graphical summaries of numerical variables using functions from `ggplot2` and `GGally`                             |
 | `clean_colnames`          | Clean column names                                                                                                 |
 | `clean_col_content`       | Clean column content if a variable is character or factor                                                          |
+| `interpolate_values`      | Interpolate values of a variable                                                                                   |
 | `add_missing_columns`     | Append all the columns not present in a reference vector                                                           |
 
 ## Examples
 
 I am using the Iris dataset in R, which has 5 variables. The first four
 are measurements 150 flowers and the last column specifies the species
-(there are 50 flowers of each species).
+(there are 50 flowers of each
+species).
 
 ``` r
 ## Uncomment the following line to read the documentation of the dataset.
@@ -154,6 +157,17 @@ clean_col_content(
            "maggie..simpson!", "MARGE-Simpson",
            "bart  Simpson", "Homer Simpson :-)"))
 )
+```
+
+### `interpolate_values`
+
+``` r
+library(rmiscfun)
+
+ x <- c(1, 2, 4, 5)
+ y <- c(1, 3, 7)
+ z <- c("a", "b", "a")
+ interpolate_values(x, y, z)
 ```
 
 ### `add_missing_columns`

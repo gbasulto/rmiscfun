@@ -21,7 +21,8 @@ Imports:
     ggplot2,
     GGally,
     tidyr,
-    stringr
+    stringr,
+    randomForest
 Suggests: 
     covr,
     spelling,

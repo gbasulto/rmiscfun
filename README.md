@@ -42,8 +42,7 @@ install.packages("tidyverse")
 ## Installation
 
 You can install the current version of rmiscfun from
-[GitHub](https://github.com/)
-with:
+[GitHub](https://github.com/) with:
 
 ``` r
 devtools::install_github("gbasulto/rmiscfun")
@@ -60,13 +59,13 @@ devtools::install_github("gbasulto/rmiscfun")
 | `clean_col_content`       | Clean column content if a variable is character or factor                                                          |
 | `interpolate_values`      | Interpolate values of a variable                                                                                   |
 | `add_missing_columns`     | Append all the columns not present in a reference vector                                                           |
+| `var_imp_plot`            | Variable importance plot for random forest                                                                         |
 
 ## Examples
 
 I am using the Iris dataset in R, which has 5 variables. The first four
 are measurements 150 flowers and the last column specifies the species
-(there are 50 flowers of each
-species).
+(there are 50 flowers of each species).
 
 ``` r
 ## Uncomment the following line to read the documentation of the dataset.
@@ -159,7 +158,7 @@ clean_col_content(
 )
 ```
 
-### `interpolate_values`
+#### `interpolate_values`
 
 ``` r
 library(rmiscfun)
@@ -170,7 +169,7 @@ library(rmiscfun)
  interpolate_values(x, y, z)
 ```
 
-### `add_missing_columns`
+#### `add_missing_columns`
 
 ``` r
 library(rmiscfun)
@@ -185,4 +184,17 @@ filler <- -888
 
 ## Output vector
 add_missing_columns(input_df, colnames_vector, filler)
+```
+
+#### `var_imp_plot`
+
+``` r
+library(randomForest)
+library(rmiscfun)
+
+## Fit random forest
+rf <- randomForest(Species ~ ., data = iris)
+
+## Display variable importance plot
+var_imp_plot(rf)
 ```

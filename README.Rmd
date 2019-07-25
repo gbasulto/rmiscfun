@@ -58,6 +58,7 @@ devtools::install_github("gbasulto/rmiscfun")
 | `clean_col_content` | Clean column content if a variable is character or factor |
 | `interpolate_values` | Interpolate values of a variable |
 | `add_missing_columns` | Append all the columns not present in a reference vector |
+| `var_imp_plot` | Variable importance plot for random forest |
 
 ## Examples
 
@@ -156,7 +157,7 @@ clean_col_content(
 )
 ```
 
-### `interpolate_values`
+#### `interpolate_values`
 
 ```{r, eval = FALSE}
 library(rmiscfun)
@@ -168,7 +169,7 @@ library(rmiscfun)
 
 ```
 
-### `add_missing_columns`
+#### `add_missing_columns`
 
 ```{r, eval = FALSE}
 library(rmiscfun)
@@ -183,5 +184,19 @@ filler <- -888
 
 ## Output vector
 add_missing_columns(input_df, colnames_vector, filler)
+
+```
+
+#### `var_imp_plot`
+
+```{r, eval=FALSE}
+library(randomForest)
+library(rmiscfun)
+
+## Fit random forest
+rf <- randomForest(Species ~ ., data = iris)
+
+## Display variable importance plot
+var_imp_plot(rf)
 
 ```
